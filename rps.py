@@ -21,7 +21,7 @@ playerchoice = input("Enter ... \n1 for rock \n2 for paper \n3 for scissors")
 player = int(playerchoice)
 
 
-if player < 1 | player > 3:
+if player < 1 or player > 3:
     print("Invalid input")
     sys.exit()
 
