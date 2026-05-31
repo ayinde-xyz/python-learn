@@ -28,9 +28,9 @@ def rps():
 
         computer = int(computerchoice)
     
-        print("\nYou chose " + str(RPS(player)).replace('RPS.', '').title() + ".")
-        print("Python chose " + str(RPS(computer)
-                                    ).replace('RPS.', '').title() + ".\n")
+        print(f"\nYou chose {str(RPS(player)).replace('RPS.', '').title()} .")
+        print(f"Python chose {str(RPS(computer)
+                                    ).replace('RPS.', '').title()} .\n")
         
 
         def determine_winner(player, computer):
