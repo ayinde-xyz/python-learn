@@ -80,5 +80,8 @@ def rps():
 # Return value is the play_rps function, which is a closure that retains access to the player_wins and computer_wins variables from the rps function, allowing it to modify and access these variables each time it is called.
 
 
-play = rps()
-play()
+rock_paper_scissors = rps()
+
+
+if __name__ == "__main__":
+    rock_paper_scissors()
