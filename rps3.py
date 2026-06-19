@@ -28,9 +28,8 @@ def rps(name="Player"):
 
         computer = int(computerchoice)
     
-        print(f"\n{name}, you chose {RPS(player).replace('RPS.', '').title()} .")
-        print(f"Python chose {RPS(computer)
-                                    .replace('RPS.', '').title()} .\n")
+        print(f"\n{name}, you chose {str(RPS(player)).replace('RPS.', '').title()} .")
+        print(f"Python chose {str(RPS(computer)).replace('RPS.', '').title()} .\n")
         
 
         def determine_winner(player, computer):
@@ -61,7 +60,7 @@ def rps(name="Player"):
         print(f"\n{name} has won {player_wins} game(s).")
         print(f"Python has won {computer_wins} game(s).")
 
-        print("\nPlay again?")
+        print(f"\nPlay again? {name} (Y/N)")
 
         while True:
             playagain = input("\nY for Yes or \nQ to Quit\n")
@@ -75,7 +74,7 @@ def rps(name="Player"):
         else:
             print("\n🎉🎉🎉🎉")
             print("Thank you for playing!\n")
-            sys.exit("Bye! 👋")
+            sys.exit(f"Bye {name}! 👋")
     return play_rps
 # Return value is the play_rps function, which is a closure that retains access to the player_wins and computer_wins variables from the rps function, allowing it to modify and access these variables each time it is called.
 
@@ -84,5 +83,18 @@ def rps(name="Player"):
 
 
 if __name__ == "__main__":
-    rock_paper_scissors = rps()
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description="Provides a personalized game experience for Rock, Paper, Scissors"
+    )
+
+    parser.add_argument(
+        "-n", "--name", metavar="name", dest="firstname", required="True", help="The name of the perrson to play the game"
+    )
+  
+
+    args = parser.parse_args()
+
+    rock_paper_scissors = rps(args.firstname)
     rock_paper_scissors()
